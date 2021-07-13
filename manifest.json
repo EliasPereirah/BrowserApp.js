@@ -1,0 +1,35 @@
+{
+   "author": "Taxologia Apps",
+   "background": {
+      "scripts": [ "scripts/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "common/ui/icons/icon32.png",
+      "default_title": "BrowserApp.js"
+   },
+   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+   "content_scripts": [ {
+      "js": [ "scripts/code.js" ],
+      "matches": [ "*://*.taxologia.com/BrowserApp.js" ]
+   }, {
+      "js": [ "scripts/contentInject.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   }],
+   "default_locale": "pt_BR",
+   "description": "Insira e execute JavaScript no navegador",
+   "icons": {
+      "128": "common/ui/icons/icon128.png",
+      "16": "common/ui/icons/icon16.png",
+      "256": "common/ui/icons/icon256.png",
+      "32": "common/ui/icons/icon32.png",
+      "48": "common/ui/icons/icon48.png",
+      "64": "common/ui/icons/icon64.png"
+   },
+   "manifest_version": 2,
+   "name": "BrowserApp.js",
+   "options_page": "code.html",
+   "version": "1.0",
+   "permissions": ["notifications", "tabs", "http://*/*", "https://*/*", "activeTab", "storage", "webNavigation"],
+   "web_accessible_resources": ["common/ui/*", "common/ui/icons/*", "common/ui/css/*" ]
+}
